@@ -12,7 +12,8 @@
 </head>
 <body>
 <center>
-<a href="/task/home">HOME</a></center>
+            <a href="/employee/home"><b>Home</b></a>
+			<a href="/employee/logout"><b>Logout</b></a></center>
 
 			<c:if test="${not empty employee.userName}">
 				<c:url value="/employee/logout" var="logOutUrl" scope="session"/>

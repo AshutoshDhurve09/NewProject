@@ -1,5 +1,6 @@
 package com.v2Technologies.project_management_system.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,9 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="TBL_EMPLOYEE")
-public class Employee 
+public class Employee implements Comparable<Employee> , Serializable
 {
   
 	@Id
@@ -51,15 +53,15 @@ public class Employee
 	Set<Task> tasks;
 	
 	
-	public Designation getDesignation() {
-		return designation;
+	
+	
+	
+	
+
+	public void setEmployeeId(long employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public void setDesignation(Designation designation) {
-		this.designation = designation;
-	}
-	
-	
 	public Company getCompany() {
 		return company;
 	}
@@ -108,9 +110,18 @@ public class Employee
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}*/
+	
 
 	public String getEmailId() {
 		return emailId;
+	}
+
+	public Designation getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
 	}
 
 	public void setEmailId(String emailId) {
@@ -162,5 +173,11 @@ public class Employee
 	{
 		tasks.add(task);
 		task.allocateEmployee(this);
+	}
+
+	@Override
+	public int compareTo(Employee emp) {
+		
+		return employeeName.compareTo(emp.getEmployeeName());
 	}
 }

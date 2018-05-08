@@ -14,18 +14,18 @@
 <link rel="stylesheet" href="/resources/loginForm/css/style.css">
 <center>
 <c:import url="home.jsp"/><br>
-<spring:url value="/user/search" var="searchUrl"/>
+<spring:url value="/employee/search" var="searchUrl"/>
 	<form:form action="${ searchUrl }" method="POST">
 	<center>
 	<input type="text" id="searchproject" name="searchName"	placeholder="Search" required="required"> 
-	<input type="submit" value="FirstName"><br><br>
+	<input type="submit" value="searchEmployeeName"><br><br>
 	<label>Sort:</label>
-	<a href="/user/sortonfirstname"><input type="button" value="FirstName"></a>
-	<a href="/user/sortbylastname"><input type="button" value="LastName"></a>
-	<a href="/user/sortbyid"><input type="button" value="ID"></a>
+	<a href="/employee/sortonname"><input type="button" value="Name"></a>
+	<!-- <a href="/user/sortbylastname"><input type="button" value="LastName"></a>
+	<a href="/user/sortbyid"><input type="button" value="ID"></a> -->
 	</center>
 </form:form>
-<form action="/user/showEditUser" method="post" modelAttribute="use">
+<form action="/employee/showEditEmployee" method="post" modelAttribute="emp">
 		<br> <br>
 		<table border="1" align="center" cellpadding="5" cellspacing="5"> 
 	
@@ -51,9 +51,9 @@
 						
 						<td><c:out value="${ u.password }"></c:out></td>
 						
-						<td><c:out value="${ u.designation }"></c:out></td>
+						<td><c:out value="${ u.designation.designation }"></c:out></td>
 						
-						<td><c:out value="${u.company }"></c:out></td>
+						<td><c:out value="${u.company.companyName }"></c:out></td>
 						
 						
 						<td>

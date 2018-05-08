@@ -7,10 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+function Save() {
+    alert ("Company Added Sucessfully!");
+    /* document.write ("Company Added Sucessfully!"); */
+ }
+</script>
 </head>
 <body>
 <spring:url value="/company/saveAdminCompany" var="CompanyAddUrl" />
-<form:form modelAttribute="company" action="${ CompanyAddUrl }" >
+<form:form modelAttribute="company" action="${ CompanyAddUrl }"  onsubmit="Save();">
 <h3 align="center">Adding Admin & Company</h3>
 <center>
 <a href="/company/logout">Logout</a><br><br>
